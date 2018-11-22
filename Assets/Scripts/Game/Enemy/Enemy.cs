@@ -41,6 +41,12 @@ public class Enemy : MonoBehaviour
 
     private int wayPointIndex = 0;
 
+
+    void Start()
+    {
+        EnemyManager.Instance.RegisterEnemy(this);
+    }
+
     void OnGotToLastWayPoint()
     {
         Die();
@@ -61,7 +67,10 @@ public class Enemy : MonoBehaviour
     {
         if (gameObject != null)
         {
-            Destroy(gameObject);
+            EnemyManager.Instance.UnRegister(this);
+            gameObject.AddComponent<aUTOsCALER>().scaleSpeed = -2;
+            enabled = false;
+            Destroy(gameObject, 0.3f);
         }
     }
     void Update()
