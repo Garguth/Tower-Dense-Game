@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class aUTOsCALER : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public float scaleSpeed;
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+		transform.localScale += (new Vector3(scaleSpeed, scaleSpeed, scaleSpeed) * Time.deltaTime);
+    }
 }
