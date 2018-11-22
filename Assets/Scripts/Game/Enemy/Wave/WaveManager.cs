@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveManager2 : MonoBehaviour
+public class WaveManager : MonoBehaviour
 {
 
-    public static WaveManager2 Instance;
+    public static WaveManager Instance;
     public List<EnemyWave> enemyWaves = new List<EnemyWave>();
     private float elapsedTime = 0f;
     private EnemyWave activeWave;
@@ -32,6 +32,7 @@ public class WaveManager2 : MonoBehaviour
                 activeWave = enemyWave;
                 activatedWaves.Add(enemyWave);
                 spawnCounter = 0f;
+                GameManager.Instance.waveNumber++;
                 break;
             }
         }
@@ -57,10 +58,7 @@ public class WaveManager2 : MonoBehaviour
                     activeWave = null;
                     if (activatedWaves.Count == enemyWaves.Count)
                     {
-
-
-
-
+                        GameManager.Instance.enemySpawningOver = true;
                     }
                 }
             }
