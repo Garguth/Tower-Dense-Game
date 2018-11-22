@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour
 
     void OnGotToLastWayPoint()
     {
+        GameManager.Instance.OnEnemyEscape();
         Die();
     }
 

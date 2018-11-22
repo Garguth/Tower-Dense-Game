@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour
         escapedEnemies++;
         if (escapedEnemies == maxAllowedEscapedEnemies)
         {
-            // Too many enemies escaped, you lose the game
             OnGameLose();
         }
     }
